@@ -21,8 +21,6 @@ namespace greed
         private static int FONT_SIZE = 15;
         private static int COLS = 60;
         private static int ROWS = 40;
-        private static string CAPTION = "Robot Finds Kitten";
-        //private static string DATA_PATH = "Data/messages.txt"; we won't use this anymore
         private static Color WHITE = new Color(255, 255, 255);
         private static int DEFAULT_ARTIFACTS = 20;
 
@@ -52,16 +50,10 @@ namespace greed
             robot.SetPosition(new Point(MAX_X / 2, MAX_Y));
             cast.AddActor("robot", robot);
 
-            // load the messages
-            //List<string> messages = File.ReadAllLines(DATA_PATH).ToList<string>(); We won't use this
-
-            // create the artifacts
+            // create the gems
             Random random = new Random();
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
-                string text = ((char)random.Next(33, 126)).ToString();
-                //string message = messages[i]; we won't use this anymore
-
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
@@ -73,20 +65,38 @@ namespace greed
                 Color color = new Color(r, g, b);
 
                 Gem gem = new Gem();
-                artifact.SetText(text);
-                artifact.SetFontSize(FONT_SIZE);
-                artifact.SetColor(color);
-                artifact.SetPosition(position);
-                //artifact.SetMessage(message); we won't use this
-                cast.AddActor("artifacts", artifact);
+                gem.SetFontSize(FONT_SIZE);
+                gem.SetColor(color);
+                gem.SetPosition(position);
+                cast.AddActor("gems", gem);
             }
 
-            
+            // create the rocks
+            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
+            {
+                int x = random.Next(1, COLS);
+                int y = random.Next(1, ROWS);
+                Point position = new Point(x, y);
+                position = position.Scale(CELL_SIZE);
+
+                int r = random.Next(0, 256);
+                int g = random.Next(0, 256);
+                int b = random.Next(0, 256);
+                Color color = new Color(r, g, b);
+
+                Rock rock = new Rock();
+                rock.SetFontSize(FONT_SIZE);
+                rock.SetColor(color);
+                rock.SetPosition(position);
+                cast.AddActor("rocks", rock);
+
+
+            }
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
             VideoService videoService 
-                = new VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
+                = new VideoService(MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
             director.StartGame(cast);
         }

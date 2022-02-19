@@ -1,9 +1,9 @@
 namespace greed.Game.Casting
 {
     /// <summary>
-    /// <para>An item of cultural or historical interest.</para>
+    /// <para>Gem flying in the space</para>
     /// <para>
-    /// The responsibility of an Artifact is to provide a message about itself.
+    /// The responsibility of the gem is make the player earns a pointif hits the gem.
     /// </para>
     /// </summary>
     public class Gem : Actor
@@ -11,14 +11,14 @@ namespace greed.Game.Casting
         private string message = "+1";
 
         /// <summary>
-        /// Constructs a new instance of an Artifact.
+        /// Constructs a new instance of Gem.
         /// </summary>
         public Gem()
         {
         }
 
         /// <summary>
-        /// Gets the artifact's message.
+        /// Gets the Gem message.
         /// </summary>
         /// <returns>The message.</returns>
         public string GetMessage()

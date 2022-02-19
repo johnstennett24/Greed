@@ -1,9 +1,9 @@
 namespace greed.Game.Casting
 {
     /// <summary>
-    /// <para>An item of cultural or historical interest.</para>
+    /// <para>Rocks on the space.</para>
     /// <para>
-    /// The responsibility of an Artifact is to provide a message about itself.
+    /// The responsibility of the rocks is to make the player loses a point if hits the rock.
     /// </para>
     /// </summary>
     public class Rock : Actor
@@ -11,14 +11,14 @@ namespace greed.Game.Casting
         private string message = "-1";
 
         /// <summary>
-        /// Constructs a new instance of an Artifact.
+        /// Constructs a new instance of a Rock.
         /// </summary>
         public Rock()
         {
         }
 
         /// <summary>
-        /// Gets the artifact's message.
+        /// Gets the rock message.
         /// </summary>
         /// <returns>The message.</returns>
         public string GetMessage()
