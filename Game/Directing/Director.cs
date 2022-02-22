@@ -3,7 +3,7 @@ using Unit04.Game.Casting;
 using Unit04.Game.Services;
 
 
-namespace Greed
+namespace greed
 {
     /// <summary>
     /// <para>A person who directs the game.</para>

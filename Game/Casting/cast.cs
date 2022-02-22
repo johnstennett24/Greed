@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 //Drew a majority of the code from Unit 04 
 
-namespace Greed;    
+namespace greed;    
+
     public class Cast
     {
         private Dictionary<string, List<Actor>> actors= new Dictionary<string, List<Actor>>();
