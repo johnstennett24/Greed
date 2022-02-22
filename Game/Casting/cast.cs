@@ -17,22 +17,21 @@ namespace greed.Game.Casting
 
         public void add_actor (string group, Actor actor)
         {
-            if (!actor.ContainsKey(group))
+            if (!actors.ContainsKey(group))
             {
                 actors[group] =new List<Actor>();
             }    
-            if (!actors[group].Contains(actor));
+            if (!actors[group].Contains(actor))
             {
                 actors[group].Add(actor);
             }
-
         }
         public List<Actor> get_actors (string group)
         {
             List<Actor> results= new List<Actor>();
             if (actors.ContainsKey(group))
             {
-                results.add_range(actors[group]);
+                results.AddRange(actors[group]);
             }
             return results;
         }
@@ -42,13 +41,13 @@ namespace greed.Game.Casting
             List<Actor> results = new List<Actor>();
             foreach (List<Actor> result in actors.Values) 
             {
-                results.add_range(result);
+                results.AddRange(result);
             }
             return results;
         }
         public Actor get_first_actor(string group) 
         {
-            Actor result =null;
+            Actor result = null;
             if (actors.ContainsKey(group)) 
             {
                 if (actors[group].Count > 0)
