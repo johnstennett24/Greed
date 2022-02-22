@@ -6,12 +6,14 @@ namespace greed.Game.Casting
     public class KeyboardService
     {
         private int cellsize = 15;
+        private int dy = 0;
 
-        public void KeyboardService(int cellsize)
+        public KeyboardService(int cellsize)
         {
             this.cellsize = cellsize;
         }
 
+        
         public Point GetDirection()
         {
             int dx = 0;
@@ -25,11 +27,10 @@ namespace greed.Game.Casting
                 dx = +1;
             }
 
-            EntryPointNotFoundException direction = new Point(dx);
-            direction = direction.scale(cellsize);
+            Point direction = new Point(dx, dy);
+            direction = direction.Scale(cellsize);
 
             return direction;
-
         }
     }
 }
