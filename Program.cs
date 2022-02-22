@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using greed.Game.Casting;
-using greed.Game.Directing;
-using greed.Game.Services;
-
 
 namespace greed
 {
@@ -40,7 +37,7 @@ namespace greed
             banner.SetFontSize(FONT_SIZE);
             banner.SetColor(WHITE);
             banner.SetPosition(new Point(CELL_SIZE, 0));
-            cast.AddActor("banner", banner);
+            cast.add_actor("banner", banner);
 
             // create the robot
             Actor robot = new Actor();
@@ -48,7 +45,7 @@ namespace greed
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
             robot.SetPosition(new Point(MAX_X / 2, MAX_Y));
-            cast.AddActor("robot", robot);
+            cast.add_actor("robot", robot);
 
             // creating the artifacts
             Random random = new Random();
@@ -69,7 +66,12 @@ namespace greed
                 gem.SetFontSize(FONT_SIZE);
                 gem.SetColor(color);
                 gem.SetPosition(position);
-                cast.AddActor("artifacts", gem);
+                cast.add_actor("gems", gem);
+            }
+
+            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
+            {
+
 
                 //creating the rocks
                 int x = random.Next(1, COLS);
@@ -86,15 +88,14 @@ namespace greed
                 rock.SetFontSize(FONT_SIZE);
                 rock.SetColor(color);
                 rock.SetPosition(position);
-                cast.AddActor("artifacts", rock);
+                cast.add_actor("rocks", rock);
 
 
             }
 
             // start the game
             KeyboardService keyboardService = new KeyboardService(CELL_SIZE);
-            VideoService videoService 
-                = new VideoService(MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
+            VideoService videoService = new VideoService(MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE, false);
             Director director = new Director(keyboardService, videoService);
             director.StartGame(cast);
         }
