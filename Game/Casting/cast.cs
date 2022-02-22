@@ -1,9 +1,10 @@
-using system;
+using System;
 using System.Collections.Generic;
 
 //Drew a majority of the code from Unit 04 
 
-namespace Greed;    
+namespace greed.Game.Casting
+{  
     public class Cast
     {
         private Dictionary<string, List<Actor>> actors= new Dictionary<string, List<Actor>>();
@@ -54,7 +55,7 @@ namespace Greed;
                     result =actors[group][0];
                 }
             }
-            return results;
+            return result;
         }
 
 
@@ -68,5 +69,5 @@ namespace Greed;
         }
 
     }
-
+}
 
