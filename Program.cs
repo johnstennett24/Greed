@@ -50,8 +50,9 @@ namespace greed
             robot.SetPosition(new Point(MAX_X / 2, MAX_Y));
             cast.AddActor("robot", robot);
 
-            // create the gems
+            // creating the artifacts
             Random random = new Random();
+            //creating the gems
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
             {
                 int x = random.Next(1, COLS);
@@ -68,12 +69,9 @@ namespace greed
                 gem.SetFontSize(FONT_SIZE);
                 gem.SetColor(color);
                 gem.SetPosition(position);
-                cast.AddActor("gems", gem);
-            }
+                cast.AddActor("artifacts", gem);
 
-            // create the rocks
-            for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
-            {
+                //creating the rocks
                 int x = random.Next(1, COLS);
                 int y = random.Next(1, ROWS);
                 Point position = new Point(x, y);
@@ -88,7 +86,7 @@ namespace greed
                 rock.SetFontSize(FONT_SIZE);
                 rock.SetColor(color);
                 rock.SetPosition(position);
-                cast.AddActor("rocks", rock);
+                cast.AddActor("artifacts", rock);
 
 
             }

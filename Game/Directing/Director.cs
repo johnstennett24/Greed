@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
-namespace greed.Game.Casting
+
+namespace greed
 {
     /// <summary>
     /// <para>A person who directs the game.</para>
