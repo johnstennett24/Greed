@@ -11,6 +11,7 @@ namespace greed.Game.Casting
     /// </summary>
     public class Director
     {
+        private List<Gem> gems = new List<Gem>
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
 
@@ -47,7 +48,7 @@ namespace greed.Game.Casting
         /// <param name="cast">The given cast.</param>
         private void GetInputs(Cast cast)
         {
-            Actor robot = cast.GetFirstActor("robot");
+            Actor robot = cast.get_first_actor("robot");
             Point velocity = keyboardService.GetDirection();
             robot.SetVelocity(velocity);
         }
@@ -59,18 +60,18 @@ namespace greed.Game.Casting
         private void DoUpdates(Cast cast)
         {
             int score = 0;
-            Actor banner = cast.GetFirstActor("banner");
-            Actor robot = cast.GetFirstActor("robot");
-            List<Actor> artifacts = cast.GetActors("artifacts");
+            Actor banner = cast.get_first_actor("banner");
+            Actor robot = cast.get_first_actor("robot");
+            List<Actor> artifacts = cast.get_actors("artifacts");
 
             banner.SetText("Score: " + score);
             int maxX = videoService.GetWidth();
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in Gem)
+            foreach (Actor actor in cast"gems")
             {
-                if (robot.GetPosition().Equals(actor.GetPosition()))
+                if (robot.GetPosition().Equals(Actor.get_position()))
                 {
                     Artifact artifact = (Artifact) actor;
                     score++;
@@ -92,7 +93,7 @@ namespace greed.Game.Casting
         /// <param name="cast">The given cast.</param>
         public void DoOutputs(Cast cast)
         {
-            List<Actor> actors = cast.GetAllActors();
+            List<Actor> actors = cast.get_all_actors();
             videoService.ClearBuffer();
             videoService.DrawActors(actors);
             videoService.FlushBuffer();

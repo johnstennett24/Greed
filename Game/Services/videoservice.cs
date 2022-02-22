@@ -13,9 +13,9 @@ namespace greed.Game.Casting
         private int framerate = 0;
         private bool debug = false;
 
-        public VideoService(string caption, int width, int height, int cellsize, int framerate, bool debug)
+        public VideoService(int width, int height, int cellsize, int framerate, bool debug)
         {
-            this.caption = caption;
+            
             this.width  = width;
             this.height = height;
             this.cellsize = cellsize;
