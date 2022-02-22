@@ -1,34 +1,35 @@
 using System;
 using Raylib_cs;
 
-namespace greed.Game.Casting;
-
-public class KeyboardService
+namespace greed.Game.Casting
 {
-    private int cellsize = 15;
-
-    public void KeyboardService(int cellsize)
+    public class KeyboardService
     {
-        this.cellsize = cellsize;
-    }
+        private int cellsize = 15;
 
-    public Point GetDirection()
-    {
-        int dx = 0;
-
-        if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+        public void KeyboardService(int cellsize)
         {
-            dx = -1;
-        }
-        if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
-        {
-            dx = +1;
+            this.cellsize = cellsize;
         }
 
-        EntryPointNotFoundException direction = new Point(dx);
-        direction = direction.scale(cellsize);
+        public Point GetDirection()
+        {
+            int dx = 0;
 
-        return direction;
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_LEFT))
+            {
+                dx = -1;
+            }
+            if (Raylib.IsKeyDown(KeyboardKey.KEY_RIGHT))
+            {
+                dx = +1;
+            }
 
+            EntryPointNotFoundException direction = new Point(dx);
+            direction = direction.scale(cellsize);
+
+            return direction;
+
+        }
     }
 }
