@@ -11,7 +11,7 @@ namespace greed.Game.Casting
     /// </summary>
     public class Director
     {
-        private List<Gem> gems = new List<Gem>
+        private List<Gem> gems = new List<Gem> // ????
         private KeyboardService keyboardService = null;
         private VideoService videoService = null;
 
@@ -69,9 +69,9 @@ namespace greed.Game.Casting
             int maxY = videoService.GetHeight();
             robot.MoveNext(maxX, maxY);
 
-            foreach (Actor actor in cast"gems")
+            foreach (Actor actor in Gem)
             {
-                if (robot.GetPosition().Equals(Actor.get_position()))
+                if (robot.GetPosition().Equals(Actor.GetPosition()))
                 {
                     Artifact artifact = (Artifact) actor;
                     score++;
@@ -101,3 +101,12 @@ namespace greed.Game.Casting
 
     }
 }
+
+/* Things to determine
+    If actors load randomly
+    If actors fall 1 unit per frame
+    What list of gems is
+    What cast can give inheritance to
+    If rock and gem needs objects or if not, why they have errors
+    
+*/
