@@ -9,6 +9,7 @@ namespace greed.Game.Casting
     public class Rock : Actor
     {
         private string message = "-1";
+        private int point = 1;
 
         /// <summary>
         /// Constructs a new instance of a Rock.
@@ -24,6 +25,10 @@ namespace greed.Game.Casting
         public string GetMessage()
         {
             return message;
+        }
+        public int GetPoint()
+        {
+            return point;
         }
     }
 }
