@@ -44,7 +44,7 @@ namespace greed
             robot.SetText("#");
             robot.SetFontSize(FONT_SIZE);
             robot.SetColor(WHITE);
-            robot.SetPosition(new Point(MAX_X / 2, MAX_Y));
+            robot.SetPosition(new Point(MAX_X / 2, 585));
             cast.add_actor("robot", robot);
 
             // creating the artifacts
@@ -66,7 +66,8 @@ namespace greed
                 gem.SetFontSize(FONT_SIZE);
                 gem.SetColor(color);
                 gem.SetPosition(position);
-                cast.add_actor("gems", gem);
+                gem.SetText("*");
+                cast.add_actor("artifacts", gem);
             }
 
             for (int i = 0; i < DEFAULT_ARTIFACTS; i++)
@@ -88,7 +89,8 @@ namespace greed
                 rock.SetFontSize(FONT_SIZE);
                 rock.SetColor(color);
                 rock.SetPosition(position);
-                cast.add_actor("rocks", rock);
+                rock.SetText("0");
+                cast.add_actor("artifacts", rock);
 
 
             }
