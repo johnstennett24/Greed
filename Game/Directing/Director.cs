@@ -63,6 +63,8 @@ namespace greed.Game.Casting
             Actor banner = cast.get_first_actor("banner");
             Actor robot = cast.get_first_actor("robot");
             List<Actor> artifacts = cast.get_actors("artifacts");
+            Gem gem = new Gem();
+            Rock rock = new Rock();
 
             banner.SetText($"Score: {score}");
             int maxX = videoService.GetWidth();
@@ -73,15 +75,20 @@ namespace greed.Game.Casting
             {
                 if (robot.GetPosition().Equals(actor.GetPosition()))
                 {
-                    banner.SetText("Score: " + actor.GetText());
+                    if (actor.GetType().Equals(rock.GetType()))
+                    {
+                        score -= rock.GetMessage();
+                        banner.SetText("Score: " + score);
+                    }
+                    else if (actor.GetType().Equals(gem.GetType()))
+                    {
+                        score += gem.GetMessage();
+                        banner.SetText("Score: " + score);
+                    }
                 }
-                /*else if (robot.GetPosition().Equals(rock.GetPosition()))
-                {
-                    score += rock.GetMessage();
-                    banner.SetText("Score: " + score);
-                }*/
-            } 
             
+            actor.MoveNext(maxX, maxY); 
+            }
         }
 
         /// <summary>
@@ -91,21 +98,16 @@ namespace greed.Game.Casting
         public void DoOutputs(Cast cast)
         {
             List<Actor> actors = cast.get_all_actors();
-            List<Actor> artifacts = cast.get_actors("artifacts");
             videoService.ClearBuffer();
             videoService.DrawActors(actors);
             videoService.FlushBuffer();
-            foreach (Actor actor in artifacts)
-            {
-                Point velc = new Point(0, 1);
-                actor.SetVelocity(velc);
-            }
+            
         }
 
     }
 }
 
+
 /* Things to determine
-    If actors fall 1 unit per frame
-    Why list artifacts cant call things from actor
+    Dicerne between rock and gem.
 */

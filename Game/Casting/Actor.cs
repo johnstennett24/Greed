@@ -60,7 +60,8 @@ namespace greed.Game.Casting
         {
             return text;
         }
-
+        
+    
         /// <summary>
         /// Gets the actor's current velocity.
         /// </summary>
