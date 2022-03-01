@@ -77,7 +77,7 @@ namespace greed.Game.Casting
                 {
                     if (actor.GetType().Equals(rock.GetType()))
                     {
-                        score -= rock.GetMessage();
+                        score += rock.GetMessage();
                         banner.SetText("Score: " + score);
                     }
                     else if (actor.GetType().Equals(gem.GetType()))
